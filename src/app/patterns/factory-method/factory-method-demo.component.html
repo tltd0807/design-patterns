@@ -1,0 +1,10 @@
+<h2>Factory Method Demo</h2>
+<button (click)="loadUserData()">Load Users</button>
+<ul>
+  <li *ngFor="let user of userData">{{ user | json }}</li>
+</ul>
+
+<button (click)="loadProductData()">Load Products</button>
+<ul>
+  <li *ngFor="let product of productData">{{ product | json }}</li>
+</ul>

@@ -1,0 +1,2 @@
+sử dụng service áp dụng factory method để call api- như trong plugin các manager.
+Nếu bạn có nhiều class cùng một interface nhưng khác cách hoạt động, Factory Method là lựa chọn tốt.

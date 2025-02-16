@@ -1,0 +1,236 @@
+# Seminar: Factory Method & Abstract Factory Design Patterns
+
+## 1. Factory Method Design Pattern
+
+### 1.1 Giới thiệu chung
+
+Factory Method là một trong những pattern thuộc nhóm Creational, dùng để tạo đối tượng mà không cần xác định chính xác lớp cụ thể của nó.
+
+### 1.2 Tại sao cần sử dụng?
+
+- Tránh việc khởi tạo trực tiếp các class trong code.
+- Dễ dàng thay đổi và mở rộng khi có thêm loại đối tượng mới.
+- Hạn chế việc phụ thuộc vào các concrete class.
+
+### 1.3 Định nghĩa
+
+Factory Method định nghĩa một interface chung để tạo các đối tượng, nhưng cho phép các subclass quyết định lớp cụ thể nào sẽ được khởi tạo.
+
+### 1.4 Cấu trúc
+
+- **Product**: Interface chung cho các sản phẩm.
+- **Concrete Product**: Các lớp cụ thể của Product.
+- **Creator**: Interface hoặc class cơ sở có Factory Method.
+- **Concrete Creator**: Các lớp cụ thể implements Factory Method.
+
+### 1.5 Pseudo Code
+
+```typescript
+interface Product {
+    operation(): string;
+}
+
+class ConcreteProductA implements Product {
+    operation(): string {
+        return "Result of ConcreteProductA";
+    }
+}
+
+class ConcreteProductB implements Product {
+    operation(): string {
+        return "Result of ConcreteProductB";
+    }
+}
+
+abstract class Creator {
+    abstract factoryMethod(): Product;
+    someOperation(): string {
+        const product = this.factoryMethod();
+        return `Creator: Working with ${product.operation()}`;
+    }
+}
+
+class ConcreteCreatorA extends Creator {
+    factoryMethod(): Product {
+        return new ConcreteProductA();
+    }
+}
+
+class ConcreteCreatorB extends Creator {
+    factoryMethod(): Product {
+        return new ConcreteProductB();
+    }
+}
+```
+
+### 1.6 Code demo với TypeScript và Angular
+
+(Tách biệt Factory Method và Component trong Angular)
+
+```typescript
+export interface Dialog {
+    show(): void;
+}
+
+export class AlertDialog implements Dialog {
+    show(): void {
+        console.log("Showing Alert Dialog");
+    }
+}
+
+export class ConfirmDialog implements Dialog {
+    show(): void {
+        console.log("Showing Confirm Dialog");
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export abstract class DialogService {
+    abstract createDialog(): Dialog;
+}
+
+@Injectable({ providedIn: 'root' })
+export class AlertDialogService extends DialogService {
+    createDialog(): Dialog {
+        return new AlertDialog();
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export class ConfirmDialogService extends DialogService {
+    createDialog(): Dialog {
+        return new ConfirmDialog();
+    }
+}
+```
+
+### 1.7 Pros and Cons
+
+#### Pros:
+
+- Dễ mở rộng khi thêm sản phẩm mới.
+- Giảm sự phụ thuộc vào các class cụ thể.
+
+#### Cons:
+
+- Tăng độ phức tạp của code.
+
+### 1.8 Khi nào sử dụng?
+
+- Khi muốn giảm sự phụ thuộc vào các class cụ thể.
+- Khi hệ thống có nhiều loại đối tượng khác nhau.
+
+---
+
+## 2. Abstract Factory Design Pattern
+
+### 2.1 Giới thiệu chung
+
+Abstract Factory mở rộng Factory Method, cung cấp các factory method để tạo nhóm đối tượng có liên quan.
+
+### 2.2 Tại sao cần sử dụng?
+
+- Quản lý tạo nhóm đối tượng có liên quan một cách đồng bộ.
+- Tách biệt quy trình tạo object với code business logic.
+
+### 2.3 Định nghĩa
+
+Abstract Factory là một giao diện để tạo nhóm đối tượng liên quan mà không xác định chính xác lớp cụ thể.
+
+### 2.4 Cấu trúc
+
+- **Abstract Factory**: Interface tạo nhóm đối tượng.
+- **Concrete Factory**: Implements Abstract Factory.
+- **Abstract Product**: Interface cho các sản phẩm.
+- **Concrete Product**: Implement Abstract Product.
+
+### 2.5 Pseudo Code
+
+```typescript
+interface Button {
+    render(): void;
+}
+
+class WindowsButton implements Button {
+    render(): void {
+        console.log("Render Windows Button");
+    }
+}
+
+interface Checkbox {
+    check(): void;
+}
+
+class WindowsCheckbox implements Checkbox {
+    check(): void {
+        console.log("Check Windows Checkbox");
+    }
+}
+
+interface GUIFactory {
+    createButton(): Button;
+    createCheckbox(): Checkbox;
+}
+
+class WindowsFactory implements GUIFactory {
+    createButton(): Button {
+        return new WindowsButton();
+    }
+    createCheckbox(): Checkbox {
+        return new WindowsCheckbox();
+    }
+}
+```
+
+### 2.6 Code demo với TypeScript và Angular
+
+```typescript
+export interface ButtonComponent {
+    render(): string;
+}
+
+export interface InputComponent {
+    input(): string;
+}
+
+export class MaterialButtonComponent implements ButtonComponent {
+    render(): string {
+        return "<button mat-button>Material Button</button>";
+    }
+}
+
+export class MaterialInputComponent implements InputComponent {
+    input(): string {
+        return "<input matInput placeholder='Enter text'>";
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export abstract class WidgetFactory {
+    abstract createButton(): ButtonComponent;
+    abstract createInput(): InputComponent;
+}
+
+@Injectable({ providedIn: 'root' })
+export class MaterialWidgetFactory extends WidgetFactory {
+    createButton(): ButtonComponent {
+        return new MaterialButtonComponent();
+    }
+    createInput(): InputComponent {
+        return new MaterialInputComponent();
+    }
+}
+```
+
+### 2.7 So sánh Factory Method vs Abstract Factory
+
+| Tiêu chí     | Factory Method             | Abstract Factory                     |
+| ------------ | -------------------------- | ------------------------------------ |
+| Mục đích     | Tạo một đối tượng          | Tạo nhóm đối tượng                   |
+| Cấu trúc     | 1 Factory Method           | Nhiều Factory Method                 |
+| Khi nào dùng | Khi chỉ có 1 loại sản phẩm | Khi có nhiều loại sản phẩm liên quan |
+
+---
+
+Bài seminar này bao quát Factory Method và Abstract Factory, để cậu hỏi nếu có bất kỳ thắc mắc nào!
+

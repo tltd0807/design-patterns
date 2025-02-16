@@ -1,0 +1,3 @@
+Có thể render component động bằng service: https://angular.dev/guide/components/programmatic-rendering
+Sử dụng service để control việc render các components khác nhau
+
