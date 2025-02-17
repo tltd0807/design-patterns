@@ -1,0 +1,31 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
