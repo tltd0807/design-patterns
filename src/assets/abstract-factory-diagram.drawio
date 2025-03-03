@@ -1,0 +1,115 @@
+<mxfile host="65bd71144e">
+    <diagram id="s_qmEPPJ463J-enkpRBm" name="Page-1">
+        <mxGraphModel dx="1708" dy="656" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="13" value="&lt;font&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;«interface»&lt;/span&gt;&lt;br style=&quot;scrollbar-color: light-dark(#e2e2e2, #4b4b4b)&lt;br/&gt;&#x9;&#x9;&#x9;&#x9;&#x9;light-dark(#fbfbfb, var(--dark-panel-color)); font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;ThemeFactory&lt;/span&gt;&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFFFF);startSize=40;labelBackgroundColor=none;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="80" width="200" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="13" vertex="1">
+                    <mxGeometry y="40" width="200" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;div&gt;&amp;nbsp; createButton(): Button;&lt;/div&gt;&lt;div&gt;&amp;nbsp; createCheckbox(): Checkbox;&lt;/div&gt;&lt;div&gt;&amp;nbsp; getBackgroundColor(): string;&lt;/div&gt;&lt;div&gt;&amp;nbsp; getTextColor(): string;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;" parent="13" vertex="1">
+                    <mxGeometry y="60" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;font&gt;&lt;i&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;ApiFactoryService&lt;/span&gt;&lt;/i&gt;&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFFFF);startSize=40;labelBackgroundColor=none;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="-120" y="80" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="16" vertex="1">
+                    <mxGeometry y="40" width="200" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="createService(): ApiService" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontStyle=2" parent="16" vertex="1">
+                    <mxGeometry y="60" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=block;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="22" target="15" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="340" y="270" as="sourcePoint"/>
+                        <mxPoint x="350" y="270" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="340" y="260"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="" style="endArrow=open;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;dashed=1;endFill=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="18" target="15" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="180" y="330" as="sourcePoint"/>
+                        <mxPoint x="180" y="210" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;i&gt;LightThemeFactory&lt;/i&gt;&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFFFF);startSize=40;labelBackgroundColor=none;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="300" width="110" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="22" vertex="1">
+                    <mxGeometry y="40" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="createService(): ApiService" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontStyle=2" parent="22" vertex="1">
+                    <mxGeometry y="60" width="110" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;font&gt;&lt;i&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;ProductService&lt;/span&gt;&lt;/i&gt;&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFFFF);startSize=40;labelBackgroundColor=none;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="300" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="25" vertex="1">
+                    <mxGeometry y="40" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="createService(): ApiService" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontStyle=2" parent="25" vertex="1">
+                    <mxGeometry y="60" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;font&gt;&lt;i&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;ProductFactoryService&lt;/span&gt;&lt;/i&gt;&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFFFF);startSize=40;labelBackgroundColor=none;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="-10" y="300" width="130" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="28" vertex="1">
+                    <mxGeometry y="40" width="130" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="createService(): ApiService" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontStyle=2" parent="28" vertex="1">
+                    <mxGeometry y="60" width="130" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="&lt;font&gt;&lt;i&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;UserFactoryService&lt;/span&gt;&lt;/i&gt;&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFFFF);startSize=40;labelBackgroundColor=none;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="-160" y="300" width="140" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="31" vertex="1">
+                    <mxGeometry y="40" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="createService(): ApiService" style="rounded=0;whiteSpace=wrap;html=1;fontColor=default;fontStyle=2" parent="31" vertex="1">
+                    <mxGeometry y="60" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="endArrow=block;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="31" target="18" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-20.829999999999984" y="280" as="sourcePoint"/>
+                        <mxPoint x="-20.829999999999984" y="210" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-20" y="240"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="" style="endArrow=block;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="28" target="18" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-80" y="310" as="sourcePoint"/>
+                        <mxPoint x="-10" y="210" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="-20" y="240"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="" style="endArrow=block;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="25" target="13" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="255" y="310" as="sourcePoint"/>
+                        <mxPoint x="350" y="210" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="340" y="260"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" value="&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;i&gt;FactoryMethodDemoComponent&lt;/i&gt;&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFFFF);startSize=40;labelBackgroundColor=none;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="460" width="230" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="38" vertex="1">
+                    <mxGeometry y="40" width="230" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="&lt;div&gt;&lt;font&gt;- userFactory: UserFactoryService&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;- productFactory: ProductFactoryService&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ loadUserData()&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;+ loadProductData()&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontColor=#FFFFFF;fontStyle=2;align=left;" parent="38" vertex="1">
+                    <mxGeometry y="60" width="230" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
