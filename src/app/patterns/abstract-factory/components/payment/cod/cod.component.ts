@@ -10,7 +10,6 @@ export class CodComponent implements IPaymentForm {
   @Input() validator!: IPaymentValidator;
 
   public phoneNumber: string = '';
-  public validationResult: string = '';
 
   constructor() {}
 
@@ -28,7 +27,7 @@ export class CodComponent implements IPaymentForm {
 
   submit(): void {
     if (!this.validator) {
-      window.alert(`Something went wrong try later}`);
+      this.error(`Something went wrong try later}`);
     }
     if (this.validator.validate({ phoneNumber: this.phoneNumber })) {
       this.success();

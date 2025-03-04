@@ -1,15 +1,33 @@
-import { Component } from '@angular/core';
-import { IPaymentForm } from '../../../services/payment-factory';
+import { Component, Input } from '@angular/core';
+import { IPaymentForm, IPaymentValidator } from '../../../shared/payment';
 
 @Component({
   selector: 'credit',
-  template: 'credit.component.html',
+  templateUrl: 'credit.component.html',
   styleUrls: ['credit.component.scss'],
 })
 export class CreditComponent implements IPaymentForm {
+  @Input() validator!: IPaymentValidator;
+  public cardNumber: string = '';
+
   constructor() {}
 
-  error(): void {}
+  error(): void {
+    window.alert('Please check card number and try again');
+  }
 
-  success(): void {}
+  success(): void {
+    window.alert('Yeahhh huuuu');
+  }
+  // 3566002020360505
+  submit(): void {
+    if (!this.validator) {
+      this.error();
+    }
+    if (this.validator.validate({ cardNumber: this.cardNumber })) {
+      this.success();
+    } else {
+      this.error();
+    }
+  }
 }
