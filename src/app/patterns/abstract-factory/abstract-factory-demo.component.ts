@@ -1,4 +1,6 @@
 import {
+  AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ComponentFactoryResolver,
   OnInit,
@@ -24,46 +26,46 @@ enum PaymentType {
   templateUrl: './abstract-factory-demo.component.html',
   styleUrls: ['./abstract-factory-demo.component.scss'],
 })
-export class AbstractFactoryDemoComponent implements OnInit {
+export class AbstractFactoryDemoComponent implements AfterViewInit {
   @ViewChild('paymentContainer', { read: ViewContainerRef })
   container!: ViewContainerRef;
 
   constructor(
     private CODFactory: CodFactory,
     private paypalFactory: PayPalFactory,
-    private creditFactory: CreditFactory
+    private creditFactory: CreditFactory,
+    private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit() {
-    this.onPaymentChange({ target: { value: 'momo' } });
+  ngAfterViewInit() {
+    this.onPaymentChange({ target: { value: 'cod' } });
   }
-
   onPaymentChange(event: any) {
     const paymentType = event.target.value;
     this.container.clear();
 
     let component: any = null;
-    let factory: IPaymentFactory | null = null;
+    let validator: any = null;
 
     switch (paymentType) {
       case PaymentType.cod:
-        component = CodComponent;
-        factory = this.CODFactory;
+        component = this.CODFactory.getPaymentForm();
+        validator = this.CODFactory.createValidator();
         break;
       case PaymentType.paypal:
-        component = PayPalComponent;
-        factory = this.paypalFactory;
+        component = this.paypalFactory.getPaymentForm();
+        validator = this.paypalFactory.createValidator();
         break;
       case PaymentType.credit:
-        component = CreditComponent;
-        factory = this.creditFactory;
+        component = this.creditFactory.getPaymentForm();
+        validator = this.creditFactory.createValidator();
         break;
     }
 
-    if (component && factory) {
+    if (component && validator) {
       const componentRef = this.container.createComponent(component);
-
-      componentRef.setInput('validator', factory);
+      componentRef.setInput('validator', validator);
+      this.cdr.detectChanges();
     }
   }
 }

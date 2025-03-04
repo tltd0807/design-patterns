@@ -27,7 +27,6 @@ export class CodComponent implements IPaymentForm {
   }
 
   submit(): void {
-    window.alert(`submitted ${this.phoneNumber}`);
     if (!this.validator) {
       window.alert(`Something went wrong try later}`);
     }

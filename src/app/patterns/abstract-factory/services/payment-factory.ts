@@ -16,8 +16,8 @@ export interface IPaymentFactory {
 
 @Injectable({ providedIn: 'root' })
 export class PayPalFactory implements IPaymentFactory {
-  getPaymentForm(): IPaymentForm {
-    return new PayPalComponent();
+  getPaymentForm(): any {
+    return PayPalComponent;
   }
   createValidator(): IPaymentValidator {
     return new PayPalValidator();
@@ -26,8 +26,8 @@ export class PayPalFactory implements IPaymentFactory {
 
 @Injectable({ providedIn: 'root' })
 export class CreditFactory implements IPaymentFactory {
-  getPaymentForm(): IPaymentForm {
-    return new CreditComponent();
+  getPaymentForm(): any {
+    return CreditComponent;
   }
   createValidator(): IPaymentValidator {
     return new CreditValidator();
@@ -36,9 +36,13 @@ export class CreditFactory implements IPaymentFactory {
 
 @Injectable({ providedIn: 'root' })
 export class CodFactory implements IPaymentFactory {
-  getPaymentForm(): IPaymentForm {
-    return new CodComponent();
+  getPaymentForm(): any {
+    return CodComponent;
   }
+  // Trường hợp này là sai vì tạo ra instanceinstance
+  // getPaymentForm(): IPaymentForm {
+  //   return new CodComponent();
+  // }
   createValidator(): IPaymentValidator {
     return new CODValidator();
   }
