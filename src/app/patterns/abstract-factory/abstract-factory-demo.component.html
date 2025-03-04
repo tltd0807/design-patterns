@@ -1,9 +1,7 @@
-<div class="container">
-  <h1>Abstract Factory Pattern in Angular</h1>
+<select (change)="onPaymentChange($event)">
+  <option value="cod">Cod</option>
+  <option value="paypal">PayPal</option>
+  <option value="credit">Credit</option>
+</select>
 
-  <button (click)="changeTheme('light')">Set Light Theme</button>
-  <button (click)="changeTheme('dark')">Set Dark Theme</button>
-
-  <p>Button: {{ buttonText }}</p>
-  <p>Checkbox: {{ checkboxText }}</p>
-</div>
+<ng-container #paymentContainer></ng-container>
