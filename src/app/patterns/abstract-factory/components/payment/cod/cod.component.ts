@@ -13,7 +13,7 @@ export class CodComponent implements IPaymentForm {
 
   constructor() {}
 
-  // Này gọi là overloading
+  // overloading
   error(): void;
   error(message?: string): void;
 

@@ -10,12 +10,8 @@ import {
 import {
   CodFactory,
   CreditFactory,
-  IPaymentFactory,
   PayPalFactory,
 } from './services/payment-factory';
-import { CodComponent } from './components/payment/cod/cod.component';
-import { PayPalComponent } from './components/payment/paypal/paypal.component';
-import { CreditComponent } from './components/payment/credit/credit.component';
 enum PaymentType {
   cod = 'cod',
   paypal = 'paypal',
@@ -42,6 +38,7 @@ export class AbstractFactoryDemoComponent implements AfterViewInit {
   }
   onPaymentChange(event: any) {
     const paymentType = event.target.value;
+    // Nhớ check là gìgì
     this.container.clear();
 
     let component: any = null;
@@ -65,6 +62,7 @@ export class AbstractFactoryDemoComponent implements AfterViewInit {
     if (component && validator) {
       const componentRef = this.container.createComponent(component);
       componentRef.setInput('validator', validator);
+      // check lại sao lại detectChanges ở đây
       this.cdr.detectChanges();
     }
   }

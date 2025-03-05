@@ -1,3 +1,4 @@
 Có thể render component động bằng service: https://angular.dev/guide/components/programmatic-rendering
 Sử dụng service để control việc render các components khác nhau
 
+trong các component thì áp dụng thêm button, theme-payment để thêm các interfaces khác nữa-- abstract thì nên có 2 type interfaces khác ở products

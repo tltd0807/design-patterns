@@ -17,10 +17,7 @@ export class FactoryMethodDemoComponent implements OnInit {
     private productFactory: ProductFactoryService
   ) {}
 
-  ngOnInit(): void {
-    // this.loadUserData();
-    // this.loadProductData();
-  }
+  ngOnInit(): void {}
 
   loadUserData(): void {
     const userService: ApiService = this.userFactory.createService();
